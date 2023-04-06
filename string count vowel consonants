@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char a[100], ch;
+    int i, v=0, c=0, d=0, w=0, o=0;
+
+    printf("Enter a string : ");
+    gets(a);
+
+    for (i = 0; a[i] != '\0'; i++)
+    {
+        ch = a[i];
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o'
+           || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I'
+           || ch == 'O' || ch == 'U')
+        {
+            v++;
+        }
+        else if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+        {
+            c++;
+        }
+        else if (ch >= '0' && ch <= '9')
+        {
+            d++;
+        }
+        else if (ch == ' ')
+        {
+            w++;
+        }
+        else
+        {
+            o++;
+        }
+    }
+
+    w++;
+
+    printf("Vowels: %d\n", v);
+    printf("Consonants: %d\n", c);
+    printf("Words: %d\n", w);
+    printf("Digits: %d\n", d);
+    printf("Others: %d\n", o);
+
+    return 0;
+}
