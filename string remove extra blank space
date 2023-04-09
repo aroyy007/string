@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+  char str[100];
+  printf("Enter a string: ");
+  gets(str);
+
+  int len = strlen(str);
+  int i, j, k;
+  for (i = 0, j = -1, k = 0; i < len; i++) {
+    if (str[i] == ' ' || str[i] == '\t') {
+      if (j >= 0 && str[j] != ' ' && str[j] != '\t') {
+        str[k++] = ' ';
+      }
+      j = i;
+    }
+    else {
+      str[k++] = str[i];
+      j = i;
+    }
+  }
+  str[k] = '\0';
+
+  printf("Modified string: %s", str);
+
+  return 0;
+}
